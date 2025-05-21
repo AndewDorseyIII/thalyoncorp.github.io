@@ -1,9 +1,21 @@
+:root {
+  --bg: #0d0d0d;
+  --text: #f2f2f2;
+  --accent: #4dd0e1;
+}
+
 body {
+  background: var(--bg);
+  color: var(--text);
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-  background: #0d0d0d;
-  color: #f2f2f2;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  --bg: #ffffff;
+  --text: #111111;
 }
 
 header {
@@ -12,19 +24,42 @@ header {
   text-align: center;
 }
 
+button#theme-toggle {
+  margin-top: 1rem;
+  background: var(--accent);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
 section {
   padding: 2rem;
   max-width: 700px;
   margin: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
 }
 
-h2 {
-  border-bottom: 1px solid #444;
-  padding-bottom: 0.5rem;
+section.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-a {
-  color: #4dd0e1;
+.project-card {
+  background: #1a1a1a;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+
+.project-card a {
+  color: var(--accent);
+  font-weight: bold;
   text-decoration: none;
 }
 
